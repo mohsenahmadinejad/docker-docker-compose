@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  jhooq-springboot-container:
+    image: jhooq-spring-boot-docker-compose:1
+    build: .
+#      context: ./
+#      dockerfile: Dockerfile
+    volumes:
+      - /data/jhooq-springboot-container
+    environment:
+      SPRING_PROFILES_ACTIVE : prod
+      MY_JOB  : programmer
+    ports:
+      - "8081:8081"
+#      - "9090-9099:8081"  for scale up
+#    depends_on:
+#      - mysqldb
+#  mysqldb:
+#    image : mysql
+#    volumes:
+#      - ./data/db:/var/lib/mysql
+#    restart: always
+#    ports :
+#      - 3307:3306
+#    environment:
+#      MYSQL_DATABASE: stock-management-dev
+#      MYSQL_USER: sa
+#      MYSQL_PASSWORD : 123456
+#      MYSQL_ROOT_PASSWORD : 123456
